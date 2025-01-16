@@ -18,12 +18,14 @@ namespace AutoFFToggle
         public void OnRoundEnded(RoundEndedEventArgs _)
         {
             Server.FriendlyFire = true;
-            foreach (Player ply in Player.List)
+            foreach (Player ply in Player.List.Where(x => x.IsAlive))
             {
                 if (MainPlugin.Singleton.Config.ItemsToGive.Count > 0)
                 {
                     foreach (ItemType item in MainPlugin.Singleton.Config.ItemsToGive)
+                    {
                         ply.AddItem(item);
+                    }
                 }
             }
         }

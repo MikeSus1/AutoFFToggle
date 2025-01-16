@@ -29,7 +29,7 @@ namespace AutoFFToggle
             }
 
             Singleton = this;
-            Handlers = new();
+            Handlers = new EventHandlers();
 
             ServerHandler.WaitingForPlayers += Handlers.OnWaitingForPlayers;
             ServerHandler.RoundEnded += Handlers.OnRoundEnded;
